@@ -1,0 +1,5 @@
+{
+    "module": "ez-go/gen/ez-go/ui/Junction/Junction/dialog-filter/view.js",
+    "extensionPoint": "ez-go-dialog-window",
+    "description": "ez-go - Application Dialog Window"
+}

@@ -1,0 +1,178 @@
+{
+    "model": {
+        "entities": [
+            {
+                "properties": [
+                    {
+                        "dataAutoIncrement": "true",
+                        "dataName": "JUNCTIONDATA_ID",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "true",
+                        "dataType": "INTEGER",
+                        "name": "Id",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "dataName": "JUNCTIONDATA_ISRAINING",
+                        "dataNullable": "true",
+                        "dataType": "BOOLEAN",
+                        "name": "IsRaining",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "CHECKBOX"
+                    },
+                    {
+                        "dataLength": "20",
+                        "dataName": "JUNCTIONDATA_PROPERTY3",
+                        "dataNullable": "true",
+                        "dataType": "VARCHAR",
+                        "name": "Property3",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "dataName": "JUNCTIONDATA_JUNCTION",
+                        "dataNullable": "true",
+                        "dataType": "INTEGER",
+                        "name": "Junction",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX",
+                        "relationshipName": "JunctionData_Junction",
+                        "relationshipEntityName": "Junction",
+                        "relationshipEntityPerspectiveName": "Junction",
+                        "relationshipEntityPerspectiveLabel": "Entities"
+                    },
+                    {
+                        "dataName": "JUNCTIONDATA_TIMESTAMP",
+                        "dataNullable": "true",
+                        "dataType": "TIMESTAMP",
+                        "name": "Timestamp",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "DATE"
+                    },
+                    {
+                        "dataName": "JUNCTIONDATA_ISFALLEN",
+                        "dataNullable": "true",
+                        "dataType": "BOOLEAN",
+                        "name": "IsFallen",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "CHECKBOX"
+                    },
+                    {
+                        "dataName": "JUNCTIONDATA_ISNOISY",
+                        "dataNullable": "true",
+                        "dataType": "BOOLEAN",
+                        "name": "IsNoisy",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "CHECKBOX"
+                    },
+                    {
+                        "dataName": "JUNCTIONDATA_ISAMBULANCEPASSING",
+                        "dataNullable": "true",
+                        "dataType": "BOOLEAN",
+                        "name": "IsAmbulancePassing",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "CHECKBOX"
+                    }
+                ],
+                "caption": "Manage entity JunctionData",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}JUNCTIONDATA\"",
+                "dataName": "JUNCTIONDATA",
+                "dataQuery": "",
+                "feedPassword": "YWRtaW4=",
+                "feedUsername": "YWRtaW4=",
+                "generateReport": "false",
+                "icon": "/services/web/resources/unicons/file.svg",
+                "layoutType": "MANAGE",
+                "menuIndex": "100",
+                "menuKey": "junctiondata",
+                "menuLabel": "JunctionData",
+                "name": "JunctionData",
+                "navigationPath": "/Home",
+                "perspectiveIcon": "/services/web/resources/unicons/crosshair.svg",
+                "perspectiveLabel": "Junction",
+                "perspectiveName": "Junction",
+                "perspectiveOrder": "100",
+                "perspectiveRole": "",
+                "title": "JunctionData",
+                "tooltip": "JunctionData",
+                "type": "DEPENDENT"
+            },
+            {
+                "properties": [
+                    {
+                        "dataAutoIncrement": "true",
+                        "dataName": "JUNCTION_ID",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "true",
+                        "dataType": "INTEGER",
+                        "name": "Id",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "dataLength": "50",
+                        "dataName": "JUNCTION_NAME",
+                        "dataNullable": "true",
+                        "dataType": "VARCHAR",
+                        "name": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "50",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    }
+                ],
+                "caption": "Manage entity Junction",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}JUNCTION\"",
+                "dataName": "JUNCTION",
+                "dataQuery": "",
+                "feedPassword": "YWRtaW4=",
+                "feedUsername": "YWRtaW4=",
+                "generateReport": "false",
+                "icon": "/services/web/resources/unicons/file.svg",
+                "layoutType": "MANAGE_MASTER",
+                "menuIndex": "100",
+                "menuKey": "junction",
+                "menuLabel": "Junction",
+                "name": "Junction",
+                "navigationPath": "/Home",
+                "perspectiveIcon": "/services/web/resources/unicons/crosshair.svg",
+                "perspectiveLabel": "Junction",
+                "perspectiveName": "Junction",
+                "perspectiveOrder": "100",
+                "perspectiveRole": "",
+                "title": "Junction",
+                "tooltip": "Junction",
+                "type": "PRIMARY"
+            }
+        ],
+        "perspectives": [
+            {
+                "name": "Junction",
+                "label": "Junction",
+                "icon": "/services/web/resources/unicons/crosshair.svg",
+                "order": "100",
+                "role": {}
+            }
+        ],
+        "navigations": []
+    }
+}
