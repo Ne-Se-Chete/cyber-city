@@ -67,6 +67,9 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.IsAmbulancePassing !== undefined && entity.isIsAmbulancePassingIndeterminate === false) {
 				filter.$filter.equals.IsAmbulancePassing = entity.IsAmbulancePassing;
 			}
+			if (entity.IsFoggy !== undefined && entity.isIsFoggyIndeterminate === false) {
+				filter.$filter.equals.IsFoggy = entity.IsFoggy;
+			}
 			messageHub.postMessage("entitySearch", {
 				entity: entity,
 				filter: filter

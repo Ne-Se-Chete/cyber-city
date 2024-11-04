@@ -1218,6 +1218,8 @@ components:
           type: boolean
         IsAmbulancePassing:
           type: boolean
+        IsFoggy:
+          type: boolean
     JunctionDataFilterOptions:
       type: object
       properties:
@@ -1269,6 +1271,12 @@ components:
                     - type: array
                       items:
                         type: boolean
+                IsFoggy:
+                  oneOf:
+                    - type: boolean
+                    - type: array
+                      items:
+                        type: boolean
             notEquals:
               type: object
               properties:
@@ -1314,6 +1322,12 @@ components:
                     - type: array
                       items:
                         type: boolean
+                IsFoggy:
+                  oneOf:
+                    - type: boolean
+                    - type: array
+                      items:
+                        type: boolean
             contains:
               type: object
               properties:
@@ -1324,6 +1338,7 @@ components:
                 IsFallen:
                 IsNoisy:
                 IsAmbulancePassing:
+                IsFoggy:
             greaterThan:
               type: object
               properties:
@@ -1338,6 +1353,7 @@ components:
                 IsFallen:
                 IsNoisy:
                 IsAmbulancePassing:
+                IsFoggy:
             greaterThanOrEqual:
               type: object
               properties:
@@ -1352,6 +1368,7 @@ components:
                 IsFallen:
                 IsNoisy:
                 IsAmbulancePassing:
+                IsFoggy:
             lessThan:
               type: object
               properties:
@@ -1366,6 +1383,7 @@ components:
                 IsFallen:
                 IsNoisy:
                 IsAmbulancePassing:
+                IsFoggy:
             lessThanOrEqual:
               type: object
               properties:
@@ -1380,14 +1398,15 @@ components:
                 IsFallen:
                 IsNoisy:
                 IsAmbulancePassing:
+                IsFoggy:
         $select:
           type: array
-          example: ["Id", "IsRaining", "Junction", "Timestamp", "IsFallen", "IsNoisy", "IsAmbulancePassing"]
+          example: ["Id", "IsRaining", "Junction", "Timestamp", "IsFallen", "IsNoisy", "IsAmbulancePassing", "IsFoggy"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,IsRaining,Junction,Timestamp,IsFallen,IsNoisy,IsAmbulancePassing"
+            example: "Id,IsRaining,Junction,Timestamp,IsFallen,IsNoisy,IsAmbulancePassing,IsFoggy"
         $order:
           type: string
           enum: ["asc", "desc"]

@@ -12,6 +12,7 @@ export interface JunctionDataEntity {
     IsFallen?: boolean;
     IsNoisy?: boolean;
     IsAmbulancePassing?: boolean;
+    IsFoggy?: boolean;
 }
 
 export interface JunctionDataCreateEntity {
@@ -21,6 +22,7 @@ export interface JunctionDataCreateEntity {
     readonly IsFallen?: boolean;
     readonly IsNoisy?: boolean;
     readonly IsAmbulancePassing?: boolean;
+    readonly IsFoggy?: boolean;
 }
 
 export interface JunctionDataUpdateEntity extends JunctionDataCreateEntity {
@@ -37,6 +39,7 @@ export interface JunctionDataEntityOptions {
             IsFallen?: boolean | boolean[];
             IsNoisy?: boolean | boolean[];
             IsAmbulancePassing?: boolean | boolean[];
+            IsFoggy?: boolean | boolean[];
         };
         notEquals?: {
             Id?: number | number[];
@@ -46,6 +49,7 @@ export interface JunctionDataEntityOptions {
             IsFallen?: boolean | boolean[];
             IsNoisy?: boolean | boolean[];
             IsAmbulancePassing?: boolean | boolean[];
+            IsFoggy?: boolean | boolean[];
         };
         contains?: {
             Id?: number;
@@ -55,6 +59,7 @@ export interface JunctionDataEntityOptions {
             IsFallen?: boolean;
             IsNoisy?: boolean;
             IsAmbulancePassing?: boolean;
+            IsFoggy?: boolean;
         };
         greaterThan?: {
             Id?: number;
@@ -64,6 +69,7 @@ export interface JunctionDataEntityOptions {
             IsFallen?: boolean;
             IsNoisy?: boolean;
             IsAmbulancePassing?: boolean;
+            IsFoggy?: boolean;
         };
         greaterThanOrEqual?: {
             Id?: number;
@@ -73,6 +79,7 @@ export interface JunctionDataEntityOptions {
             IsFallen?: boolean;
             IsNoisy?: boolean;
             IsAmbulancePassing?: boolean;
+            IsFoggy?: boolean;
         };
         lessThan?: {
             Id?: number;
@@ -82,6 +89,7 @@ export interface JunctionDataEntityOptions {
             IsFallen?: boolean;
             IsNoisy?: boolean;
             IsAmbulancePassing?: boolean;
+            IsFoggy?: boolean;
         };
         lessThanOrEqual?: {
             Id?: number;
@@ -91,6 +99,7 @@ export interface JunctionDataEntityOptions {
             IsFallen?: boolean;
             IsNoisy?: boolean;
             IsAmbulancePassing?: boolean;
+            IsFoggy?: boolean;
         };
     },
     $select?: (keyof JunctionDataEntity)[],
@@ -156,6 +165,11 @@ export class JunctionDataRepository {
                 name: "IsAmbulancePassing",
                 column: "JUNCTIONDATA_ISAMBULANCEPASSING",
                 type: "BOOLEAN",
+            },
+            {
+                name: "IsFoggy",
+                column: "JUNCTIONDATA_ISFOGGY",
+                type: "BOOLEAN",
             }
         ]
     };
@@ -172,6 +186,7 @@ export class JunctionDataRepository {
             EntityUtils.setBoolean(e, "IsFallen");
             EntityUtils.setBoolean(e, "IsNoisy");
             EntityUtils.setBoolean(e, "IsAmbulancePassing");
+            EntityUtils.setBoolean(e, "IsFoggy");
             return e;
         });
     }
@@ -182,6 +197,7 @@ export class JunctionDataRepository {
         EntityUtils.setBoolean(entity, "IsFallen");
         EntityUtils.setBoolean(entity, "IsNoisy");
         EntityUtils.setBoolean(entity, "IsAmbulancePassing");
+        EntityUtils.setBoolean(entity, "IsFoggy");
         return entity ?? undefined;
     }
 
@@ -190,6 +206,7 @@ export class JunctionDataRepository {
         EntityUtils.setBoolean(entity, "IsFallen");
         EntityUtils.setBoolean(entity, "IsNoisy");
         EntityUtils.setBoolean(entity, "IsAmbulancePassing");
+        EntityUtils.setBoolean(entity, "IsFoggy");
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -209,6 +226,7 @@ export class JunctionDataRepository {
         EntityUtils.setBoolean(entity, "IsFallen");
         EntityUtils.setBoolean(entity, "IsNoisy");
         EntityUtils.setBoolean(entity, "IsAmbulancePassing");
+        EntityUtils.setBoolean(entity, "IsFoggy");
         const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({

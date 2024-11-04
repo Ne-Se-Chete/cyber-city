@@ -101,6 +101,18 @@
                         	<fd-checkbox-label for="idIsAmbulancePassing" dg-required="false">IsAmbulancePassing</fd-checkbox-label>
                         </div>
                     </fd-form-item>
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2"></div>
+	                    <div class="fd-col  fd-col-md--8 ">
+	                        <fd-checkbox id="idIsFoggy"
+	                            compact="false"
+	                            ng-required="false"
+	                            ng-disabled="action === 'select'"
+	                            ng-model="entity.IsFoggy">
+	                        </fd-checkbox>
+                        	<fd-checkbox-label for="idIsFoggy" dg-required="false">IsFoggy</fd-checkbox-label>
+                        </div>
+                    </fd-form-item>
                 </fd-form-group>
             </fd-fieldset>
         </fd-scrollbar>

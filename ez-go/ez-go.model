@@ -80,6 +80,16 @@
                         "widgetLength": "20",
                         "widgetSize": "",
                         "widgetType": "CHECKBOX"
+                    },
+                    {
+                        "dataName": "JUNCTIONDATA_ISFOGGY",
+                        "dataNullable": "true",
+                        "dataType": "BOOLEAN",
+                        "name": "IsFoggy",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "CHECKBOX"
                     }
                 ],
                 "caption": "Manage entity JunctionData",

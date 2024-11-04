@@ -41,6 +41,11 @@
                         "type": "BOOLEAN",
                         "nullable": true,
                         "name": "JUNCTIONDATA_ISAMBULANCEPASSING"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "nullable": true,
+                        "name": "JUNCTIONDATA_ISFOGGY"
                     }
                 ]
             },
