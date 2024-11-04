@@ -46,18 +46,13 @@
                         	<fd-form-label for="idJunction1" dg-colon="true">Junction1</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Junction1'].$valid }}">
-	                            <fd-input id="idJunction1"
-	                                name="Junction1"
-	                                state="{{ forms.details['Junction1'].$valid ? '' : 'error' }}"
-	                                ng-model="entity.Junction1"
-	                                ng-minlength="${property.minLength} || 0"
-	                                ng-maxlength="${property.maxLength} || -1"
-	                                type="text"
-	                                placeholder="Enter Junction1">
-	                            </fd-input>
-	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
-	                        </fd-form-input-message-group>
+	                        <fd-combobox-input id="idJunction1"
+	                            name="Junction1"
+	                            state="{{ forms.details['Junction1'].$valid ? '' : 'error' }}"
+	                            ng-model="entity.Junction1"
+	                            dropdown-items="optionsJunction1"
+	                            dg-placeholder="Search Junction1 ...">
+	                        </fd-combobox-input>
 	                    </div>
                     </fd-form-item>
                     <fd-form-item class="fd-row">
@@ -65,15 +60,29 @@
                         	<fd-form-label for="idJunction2" dg-colon="true">Junction2</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Junction2'].$valid }}">
-	                            <fd-input id="idJunction2"
-	                                name="Junction2"
-	                                state="{{ forms.details['Junction2'].$valid ? '' : 'error' }}"
-	                                ng-model="entity.Junction2"
-	                                ng-minlength="${property.minLength} || 0"
-	                                ng-maxlength="${property.maxLength} || -1"
+	                        <fd-combobox-input id="idJunction2"
+	                            name="Junction2"
+	                            state="{{ forms.details['Junction2'].$valid ? '' : 'error' }}"
+	                            ng-model="entity.Junction2"
+	                            dropdown-items="optionsJunction2"
+	                            dg-placeholder="Search Junction2 ...">
+	                        </fd-combobox-input>
+	                    </div>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idName" dg-colon="true">Name</fd-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--8">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Name'].$valid }}">
+	                            <fd-input id="idName"
+	                                name="Name"
+	                                state="{{ forms.details['Name'].$valid ? '' : 'error' }}"
+	                                ng-model="entity.Name"
+	                                ng-minlength="0.0 || 0"
+	                                ng-maxlength="50.0 || -1"
 	                                type="text"
-	                                placeholder="Enter Junction2">
+	                                placeholder="Enter Name">
 	                            </fd-input>
 	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
 	                        </fd-form-input-message-group>

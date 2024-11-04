@@ -42,7 +42,6 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
-                        "dataAutoIncrement": "true",
                         "dataName": "JUNCTIONDATA_TIMESTAMP",
                         "dataNullable": "true",
                         "dataType": "TIMESTAMP",
@@ -50,7 +49,7 @@
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "DATETIME-LOCAL"
+                        "widgetType": "TIME"
                     },
                     {
                         "dataName": "JUNCTIONDATA_ISFALLEN",
@@ -184,10 +183,12 @@
                         "dataNullable": "true",
                         "dataType": "INTEGER",
                         "name": "Junction1",
+                        "widgetDropDownKey": "Id",
+                        "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX",
+                        "widgetType": "DROPDOWN",
                         "relationshipName": "Edge_Junction",
                         "relationshipEntityName": "Junction",
                         "relationshipEntityPerspectiveName": "Junction",
@@ -198,14 +199,27 @@
                         "dataNullable": "true",
                         "dataType": "INTEGER",
                         "name": "Junction2",
+                        "widgetDropDownKey": "Id",
+                        "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX",
+                        "widgetType": "DROPDOWN",
                         "relationshipName": "Edge_Junction",
                         "relationshipEntityName": "Junction",
                         "relationshipEntityPerspectiveName": "Junction",
                         "relationshipEntityPerspectiveLabel": "Entities"
+                    },
+                    {
+                        "dataLength": "50",
+                        "dataName": "EDGE_NAME",
+                        "dataNullable": "true",
+                        "dataType": "VARCHAR",
+                        "name": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "50",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
                     }
                 ],
                 "caption": "Manage entity Edge",

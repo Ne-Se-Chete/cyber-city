@@ -51,6 +51,7 @@
 							item-title="{{next.IsRaining}}">
 							<fd-list-byline dg-align="left">
 								{{optionsJunctionValue(next.Junction)}} |
+								{{next.Timestamp | date: "HH:MM:ss"}} |
 								{{next.IsFallen}} |
 								{{next.IsNoisy}} |
 								{{next.IsAmbulancePassing}}

@@ -1041,6 +1041,8 @@ paths:
                   $filter:
                     notEquals:
                       Id: 33
+                    contains:
+                      Name: "abcd"
                     greaterThan:
                       Id: 0
                     lessThanOrEqual:
@@ -1057,6 +1059,12 @@ paths:
                   $filter:
                     notEquals:
                       Id: 0
+              countWithContains:
+                summary: Count with Contains
+                value:
+                  $filter:
+                    contains:
+                      Name: "abcd"
               countWithGreaterThan:
                 summary: Count with Greater Than
                 value:
@@ -1119,6 +1127,8 @@ paths:
                   $filter:
                     notEquals:
                       Id: 33
+                    contains:
+                      Name: "abcd"
                     greaterThan:
                       Id: 0
                     lessThanOrEqual:
@@ -1135,6 +1145,12 @@ paths:
                   $filter:
                     notEquals:
                       Id: 0
+              searchWithContains:
+                summary: Search with Contains
+                value:
+                  $filter:
+                    contains:
+                      Name: "abcd"
               searchWithGreaterThan:
                 summary: Search with Greater Than
                 value:
@@ -1525,6 +1541,10 @@ components:
         Junction2:
           type: integer
           format: int32
+        Name:
+          type: string
+          minLength: 0
+          maxLength: 50
     EdgeFilterOptions:
       type: object
       properties:
@@ -1566,6 +1586,17 @@ components:
                       items:
                         type: integer
                         format: int32
+                Name:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 50
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 50
             notEquals:
               type: object
               properties:
@@ -1601,6 +1632,17 @@ components:
                       items:
                         type: integer
                         format: int32
+                Name:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 50
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 50
             contains:
               type: object
               properties:
@@ -1608,6 +1650,10 @@ components:
                 Weight:
                 Junction1:
                 Junction2:
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
             greaterThan:
               type: object
               properties:
@@ -1623,6 +1669,10 @@ components:
                 Junction2:
                   type: integer
                   format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
             greaterThanOrEqual:
               type: object
               properties:
@@ -1638,6 +1688,10 @@ components:
                 Junction2:
                   type: integer
                   format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
             lessThan:
               type: object
               properties:
@@ -1653,6 +1707,10 @@ components:
                 Junction2:
                   type: integer
                   format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
             lessThanOrEqual:
               type: object
               properties:
@@ -1668,14 +1726,18 @@ components:
                 Junction2:
                   type: integer
                   format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
         $select:
           type: array
-          example: ["Id", "Weight", "Junction1", "Junction2"]
+          example: ["Id", "Weight", "Junction1", "Junction2", "Name"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Weight,Junction1,Junction2"
+            example: "Id,Weight,Junction1,Junction2,Name"
         $order:
           type: string
           enum: ["asc", "desc"]

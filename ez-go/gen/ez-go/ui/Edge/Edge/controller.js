@@ -5,7 +5,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["entityApiProvider", function (entityApiProvider) {
 		entityApiProvider.baseUrl = "/services/ts/ez-go/gen/ez-go/api/Edge/EdgeService.ts";
 	}])
-	.controller('PageController', ['$scope', 'messageHub', 'entityApi', 'Extensions', function ($scope, messageHub, entityApi, Extensions) {
+	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', 'Extensions', function ($scope, $http, messageHub, entityApi, Extensions) {
 
 		$scope.dataPage = 1;
 		$scope.dataCount = 0;
@@ -112,6 +112,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.postMessage("entitySelected", {
 				entity: entity,
 				selectedMainEntityId: entity.Id,
+				optionsJunction1: $scope.optionsJunction1,
+				optionsJunction2: $scope.optionsJunction2,
 			});
 		};
 
@@ -119,13 +121,19 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.selectedEntity = null;
 			$scope.action = "create";
 
-			messageHub.postMessage("createEntity");
+			messageHub.postMessage("createEntity", {
+				entity: {},
+				optionsJunction1: $scope.optionsJunction1,
+				optionsJunction2: $scope.optionsJunction2,
+			});
 		};
 
 		$scope.updateEntity = function () {
 			$scope.action = "update";
 			messageHub.postMessage("updateEntity", {
 				entity: $scope.selectedEntity,
+				optionsJunction1: $scope.optionsJunction1,
+				optionsJunction2: $scope.optionsJunction2,
 			});
 		};
 
@@ -162,7 +170,50 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.openFilter = function (entity) {
 			messageHub.showDialogWindow("Edge-filter", {
 				entity: $scope.filterEntity,
+				optionsJunction1: $scope.optionsJunction1,
+				optionsJunction2: $scope.optionsJunction2,
 			});
 		};
+
+		//----------------Dropdowns-----------------//
+		$scope.optionsJunction1 = [];
+		$scope.optionsJunction2 = [];
+
+
+		$http.get("/services/ts/ez-go/gen/ez-go/api/Junction/JunctionService.ts").then(function (response) {
+			$scope.optionsJunction1 = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+
+		$http.get("/services/ts/ez-go/gen/ez-go/api/Junction/JunctionService.ts").then(function (response) {
+			$scope.optionsJunction2 = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+
+		$scope.optionsJunction1Value = function (optionKey) {
+			for (let i = 0; i < $scope.optionsJunction1.length; i++) {
+				if ($scope.optionsJunction1[i].value === optionKey) {
+					return $scope.optionsJunction1[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsJunction2Value = function (optionKey) {
+			for (let i = 0; i < $scope.optionsJunction2.length; i++) {
+				if ($scope.optionsJunction2[i].value === optionKey) {
+					return $scope.optionsJunction2[i].text;
+				}
+			}
+			return null;
+		};
+		//----------------Dropdowns-----------------//
 
 	}]);

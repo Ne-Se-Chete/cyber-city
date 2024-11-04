@@ -8,12 +8,14 @@ export interface EdgeEntity {
     Weight?: number;
     Junction1?: number;
     Junction2?: number;
+    Name?: string;
 }
 
 export interface EdgeCreateEntity {
     readonly Weight?: number;
     readonly Junction1?: number;
     readonly Junction2?: number;
+    readonly Name?: string;
 }
 
 export interface EdgeUpdateEntity extends EdgeCreateEntity {
@@ -27,42 +29,49 @@ export interface EdgeEntityOptions {
             Weight?: number | number[];
             Junction1?: number | number[];
             Junction2?: number | number[];
+            Name?: string | string[];
         };
         notEquals?: {
             Id?: number | number[];
             Weight?: number | number[];
             Junction1?: number | number[];
             Junction2?: number | number[];
+            Name?: string | string[];
         };
         contains?: {
             Id?: number;
             Weight?: number;
             Junction1?: number;
             Junction2?: number;
+            Name?: string;
         };
         greaterThan?: {
             Id?: number;
             Weight?: number;
             Junction1?: number;
             Junction2?: number;
+            Name?: string;
         };
         greaterThanOrEqual?: {
             Id?: number;
             Weight?: number;
             Junction1?: number;
             Junction2?: number;
+            Name?: string;
         };
         lessThan?: {
             Id?: number;
             Weight?: number;
             Junction1?: number;
             Junction2?: number;
+            Name?: string;
         };
         lessThanOrEqual?: {
             Id?: number;
             Weight?: number;
             Junction1?: number;
             Junction2?: number;
+            Name?: string;
         };
     },
     $select?: (keyof EdgeEntity)[],
@@ -113,6 +122,11 @@ export class EdgeRepository {
                 name: "Junction2",
                 column: "EDGE_JUNCTION2",
                 type: "INTEGER",
+            },
+            {
+                name: "Name",
+                column: "EDGE_NAME",
+                type: "VARCHAR",
             }
         ]
     };

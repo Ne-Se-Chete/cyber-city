@@ -24,7 +24,6 @@
                     },
                     {
                         "type": "TIMESTAMP",
-                        "identity": true,
                         "nullable": true,
                         "name": "JUNCTIONDATA_TIMESTAMP"
                     },
@@ -89,6 +88,12 @@
                         "type": "INTEGER",
                         "nullable": true,
                         "name": "EDGE_JUNCTION2"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 50,
+                        "nullable": true,
+                        "name": "EDGE_NAME"
                     }
                 ]
             },

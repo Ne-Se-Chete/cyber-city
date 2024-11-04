@@ -40,21 +40,15 @@
                         	<fd-form-label for="idJunction1" dg-required="false" dg-colon="true">Junction1</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
-	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Junction1'].$valid }}">
-	                            <fd-input id="idJunction1"
-	                                name="Junction1"
-	                                state="{{ forms.details['Junction1'].$valid ? '' : 'error' }}"
-									ng-required="false"
-	                                ng-model="entity.Junction1"
-	                                ng-readonly="action === 'select'"
-	                                ng-minlength="${property.minLength} || 0"
-	                                ng-maxlength="${property.maxLength} || -1"
-	                                dg-input-rules="{ patterns: [''] }"
-	                                type="text"
-	                                placeholder="Enter Junction1">
-	                            </fd-input>
-	                            <fd-form-message dg-type="error">The value doesn't match the required pattern ''</fd-form-message>
-	                        </fd-form-input-message-group>
+	                        <fd-combobox-input id="idJunction1"
+	                            name="Junction1"
+	                            state="{{ forms.details['Junction1'].$valid ? '' : 'error' }}"
+	                            ng-required="false"
+	                            ng-model="entity.Junction1"
+	                            dg-disabled="action === 'select'"
+	                            dropdown-items="optionsJunction1"
+	                            dg-placeholder="Search Junction1 ...">
+	                        </fd-combobox-input>
 	                    </div>
                     </fd-form-item>
                     <fd-form-item class="fd-row">
@@ -62,18 +56,34 @@
                         	<fd-form-label for="idJunction2" dg-required="false" dg-colon="true">Junction2</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
-	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Junction2'].$valid }}">
-	                            <fd-input id="idJunction2"
-	                                name="Junction2"
-	                                state="{{ forms.details['Junction2'].$valid ? '' : 'error' }}"
+	                        <fd-combobox-input id="idJunction2"
+	                            name="Junction2"
+	                            state="{{ forms.details['Junction2'].$valid ? '' : 'error' }}"
+	                            ng-required="false"
+	                            ng-model="entity.Junction2"
+	                            dg-disabled="action === 'select'"
+	                            dropdown-items="optionsJunction2"
+	                            dg-placeholder="Search Junction2 ...">
+	                        </fd-combobox-input>
+	                    </div>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idName" dg-required="false" dg-colon="true">Name</fd-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--8 ">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Name'].$valid }}">
+	                            <fd-input id="idName"
+	                                name="Name"
+	                                state="{{ forms.details['Name'].$valid ? '' : 'error' }}"
 									ng-required="false"
-	                                ng-model="entity.Junction2"
+	                                ng-model="entity.Name"
 	                                ng-readonly="action === 'select'"
-	                                ng-minlength="${property.minLength} || 0"
-	                                ng-maxlength="${property.maxLength} || -1"
+	                                ng-minlength="0.0 || 0"
+	                                ng-maxlength="50.0 || -1"
 	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
-	                                placeholder="Enter Junction2">
+	                                placeholder="Enter Name">
 	                            </fd-input>
 	                            <fd-form-message dg-type="error">The value doesn't match the required pattern ''</fd-form-message>
 	                        </fd-form-input-message-group>
