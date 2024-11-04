@@ -4,11 +4,11 @@
  * Do not modify the content as it may be re-generated again.
  */
 const perspectiveData = {
-	id: 'Junction',
-	name: 'Junction',
-	link: '/services/web/ez-go/gen/ez-go/ui/Junction/index.html',
-	order: 100,
-	icon: '/services/web/resources/unicons/compass.svg',
+	id: 'Edge',
+	name: 'Edge',
+	link: '/services/web/ez-go/gen/ez-go/ui/Edge/index.html',
+	order: 300,
+	icon: '/services/web/resources/unicons/corner-down-left.svg',
 };
 
 if (typeof exports !== 'undefined') {

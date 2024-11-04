@@ -9,10 +9,11 @@ externalDocs:
 servers:
   - url: /services/ts
 tags:
+  - name: JunctionData
   - name: Junction
-  - name: Junction
+  - name: Edge
 paths:
-  /ez-go/gen/ez-go/api/Junction/JunctionDataService.ts:
+  /ez-go/gen/ez-go/api/JunctionData/JunctionDataService.ts:
     get:
       summary: List JunctionData
       parameters:
@@ -33,7 +34,7 @@ paths:
             type: integer
             allowEmptyValue: true
       tags:
-        - Junction
+        - JunctionData
       responses:
         200:
           description: Successful Request
@@ -64,7 +65,7 @@ paths:
     post:
       summary: Create JunctionData
       tags:
-        - Junction
+        - JunctionData
       requestBody:
         content:
           application/json:
@@ -96,7 +97,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /ez-go/gen/ez-go/api/Junction/JunctionDataService.ts/{id}:
+  /ez-go/gen/ez-go/api/JunctionData/JunctionDataService.ts/{id}:
     get:
       summary: Get JunctionData by Id
       parameters:
@@ -107,7 +108,7 @@ paths:
           schema:
             type: string
       tags:
-        - Junction
+        - JunctionData
       responses:
         200:
           description: Successful Request
@@ -145,7 +146,7 @@ paths:
           schema:
             type: string
       tags:
-        - Junction
+        - JunctionData
       requestBody:
         content:
           application/json:
@@ -193,7 +194,7 @@ paths:
           schema:
             type: string
       tags:
-        - Junction
+        - JunctionData
       responses:
         204:
           description: Successful Request
@@ -215,11 +216,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /ez-go/gen/ez-go/api/Junction/JunctionDataService.ts/count:
+  /ez-go/gen/ez-go/api/JunctionData/JunctionDataService.ts/count:
     get:
       summary: Count the number of JunctionData
       tags:
-        - Junction
+        - JunctionData
       responses:
         200:
           description: Successful Request
@@ -243,7 +244,7 @@ paths:
     post:
       summary: Count the number of JunctionData by JunctionDataFilterOptions
       tags:
-        - Junction
+        - JunctionData
       requestBody:
         content:
           application/json:
@@ -256,8 +257,6 @@ paths:
                   $filter:
                     notEquals:
                       Id: 33
-                    contains:
-                      Property3: "abcd"
                     greaterThan:
                       Id: 0
                     lessThanOrEqual:
@@ -274,12 +273,6 @@ paths:
                   $filter:
                     notEquals:
                       Id: 0
-              countWithContains:
-                summary: Count with Contains
-                value:
-                  $filter:
-                    contains:
-                      Property3: "abcd"
               countWithGreaterThan:
                 summary: Count with Greater Than
                 value:
@@ -325,11 +318,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /ez-go/gen/ez-go/api/Junction/JunctionDataService.ts/search:
+  /ez-go/gen/ez-go/api/JunctionData/JunctionDataService.ts/search:
     post:
       summary: Search JunctionData by JunctionDataFilterOptions
       tags:
-        - Junction
+        - JunctionData
       requestBody:
         content:
           application/json:
@@ -342,8 +335,6 @@ paths:
                   $filter:
                     notEquals:
                       Id: 33
-                    contains:
-                      Property3: "abcd"
                     greaterThan:
                       Id: 0
                     lessThanOrEqual:
@@ -360,12 +351,6 @@ paths:
                   $filter:
                     notEquals:
                       Id: 0
-              searchWithContains:
-                summary: Search with Contains
-                value:
-                  $filter:
-                    contains:
-                      Property3: "abcd"
               searchWithGreaterThan:
                 summary: Search with Greater Than
                 value:
@@ -812,6 +797,390 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+  /ez-go/gen/ez-go/api/Edge/EdgeService.ts:
+    get:
+      summary: List Edge
+      parameters:
+        - in: query
+          name: $limit
+          description: The number of records to be returned _(both `$limit` and `$offset` should be provided)_.
+          required: false
+          allowReserved: true
+          schema:
+            type: integer
+            allowEmptyValue: true
+        - in: query
+          name: $offset
+          description: The number of records to skip _(both `$limit` and `$offset` should be provided)_.
+          required: false
+          allowReserved: true
+          schema:
+            type: integer
+            allowEmptyValue: true
+      tags:
+        - Edge
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/Edge'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Create Edge
+      tags:
+        - Edge
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Edge'
+        required: true
+      responses:
+        201:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Edge'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /ez-go/gen/ez-go/api/Edge/EdgeService.ts/{id}:
+    get:
+      summary: Get Edge by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - Edge
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/Edge'
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      summary: Update Edge by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - Edge
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Edge'
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Edge'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      summary: Delete Edge by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - Edge
+      responses:
+        204:
+          description: Successful Request
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /ez-go/gen/ez-go/api/Edge/EdgeService.ts/count:
+    get:
+      summary: Count the number of Edge
+      tags:
+        - Edge
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 100
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Count the number of Edge by EdgeFilterOptions
+      tags:
+        - Edge
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EdgeFilterOptions'
+            examples:
+              countWithMultipleCriteria:
+                summary: Count with multiple criteria
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 33
+                    greaterThan:
+                      Id: 0
+                    lessThanOrEqual:
+                      Id: 100
+              countWithEquals:
+                summary: Count with Equals
+                value:
+                  $filter:
+                    equals:
+                      Id: 0
+              countWithNotEquals:
+                summary: Count with Not Equals
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 0
+              countWithGreaterThan:
+                summary: Count with Greater Than
+                value:
+                  $filter:
+                    greaterThan:
+                      Id: 0
+              countWithGreaterThanOrEqual:
+                summary: Count with Greater Than Or Equal
+                value:
+                  $filter:
+                    greaterThanOrEqual:
+                      Id: 0
+              countWithLessThan:
+                summary: Count with Less Than
+                value:
+                  $filter:
+                    lessThan:
+                      Id: 0
+              countWithLessThanOrEqual:
+                summary: Count with Less Than Or Equal
+                value:
+                  $filter:
+                    lessThanOrEqual:
+                      Id: 0
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 100
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /ez-go/gen/ez-go/api/Edge/EdgeService.ts/search:
+    post:
+      summary: Search Edge by EdgeFilterOptions
+      tags:
+        - Edge
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EdgeFilterOptions'
+            examples:
+              searchWithMultipleCriteria:
+                summary: Search with multiple criteria
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 33
+                    greaterThan:
+                      Id: 0
+                    lessThanOrEqual:
+                      Id: 100
+              searchWithEquals:
+                summary: Search with Equals
+                value:
+                  $filter:
+                    equals:
+                      Id: 0
+              searchWithNotEquals:
+                summary: Search with Not Equals
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 0
+              searchWithGreaterThan:
+                summary: Search with Greater Than
+                value:
+                  $filter:
+                    greaterThan:
+                      Id: 0
+              searchWithGreaterThanOrEqual:
+                summary: Search with Greater Than Or Equal
+                value:
+                  $filter:
+                    greaterThanOrEqual:
+                      Id: 0
+              searchWithLessThan:
+                summary: Search with Less Than
+                value:
+                  $filter:
+                    lessThan:
+                      Id: 0
+              searchWithLessThanOrEqual:
+                summary: Search with Less Than Or Equal
+                value:
+                  $filter:
+                    lessThanOrEqual:
+                      Id: 0
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/Edge'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 components:
   schemas:
     JunctionData:
@@ -823,10 +1192,6 @@ components:
           format: int32
         IsRaining:
           type: boolean
-        Property3:
-          type: string
-          minLength: 0
-          maxLength: 20
         Junction:
           type: integer
           format: int32
@@ -860,17 +1225,6 @@ components:
                     - type: array
                       items:
                         type: boolean
-                Property3:
-                  oneOf:
-                    - type: string
-                      minLength: 0
-                      maxLength: 20
-                    - type: array
-                      items:
-                        type: string
-                        format: double
-                        minLength: 0
-                        maxLength: 20
                 Junction:
                   oneOf:
                     - type: integer
@@ -916,17 +1270,6 @@ components:
                     - type: array
                       items:
                         type: boolean
-                Property3:
-                  oneOf:
-                    - type: string
-                      minLength: 0
-                      maxLength: 20
-                    - type: array
-                      items:
-                        type: string
-                        format: double
-                        minLength: 0
-                        maxLength: 20
                 Junction:
                   oneOf:
                     - type: integer
@@ -960,10 +1303,6 @@ components:
               properties:
                 Id:
                 IsRaining:
-                Property3:
-                  type: string
-                  minLength: 0
-                  maxLength: 20
                 Junction:
                 Timestamp:
                 IsFallen:
@@ -976,10 +1315,6 @@ components:
                   type: integer
                   format: int32
                 IsRaining:
-                Property3:
-                  type: string
-                  minLength: 0
-                  maxLength: 20
                 Junction:
                   type: integer
                   format: int32
@@ -994,10 +1329,6 @@ components:
                   type: integer
                   format: int32
                 IsRaining:
-                Property3:
-                  type: string
-                  minLength: 0
-                  maxLength: 20
                 Junction:
                   type: integer
                   format: int32
@@ -1012,10 +1343,6 @@ components:
                   type: integer
                   format: int32
                 IsRaining:
-                Property3:
-                  type: string
-                  minLength: 0
-                  maxLength: 20
                 Junction:
                   type: integer
                   format: int32
@@ -1030,10 +1357,6 @@ components:
                   type: integer
                   format: int32
                 IsRaining:
-                Property3:
-                  type: string
-                  minLength: 0
-                  maxLength: 20
                 Junction:
                   type: integer
                   format: int32
@@ -1043,12 +1366,12 @@ components:
                 IsAmbulancePassing:
         $select:
           type: array
-          example: ["Id", "IsRaining", "Property3", "Junction", "Timestamp", "IsFallen", "IsNoisy", "IsAmbulancePassing"]
+          example: ["Id", "IsRaining", "Junction", "Timestamp", "IsFallen", "IsNoisy", "IsAmbulancePassing"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,IsRaining,Property3,Junction,Timestamp,IsFallen,IsNoisy,IsAmbulancePassing"
+            example: "Id,IsRaining,Junction,Timestamp,IsFallen,IsNoisy,IsAmbulancePassing"
         $order:
           type: string
           enum: ["asc", "desc"]
@@ -1176,6 +1499,183 @@ components:
         $sort:
           - type: string
             example: "Id,Name"
+        $order:
+          type: string
+          enum: ["asc", "desc"]
+          example: "asc"
+        $offset:
+          type: integer
+          example: 0
+        $limit:
+          type: integer
+          example: 10
+    Edge:
+      type: object
+      required:
+      properties:
+        Id:
+          type: integer
+          format: int32
+        Weight:
+          type: number
+          format: double
+        Junction1:
+          type: integer
+          format: int32
+        Junction2:
+          type: integer
+          format: int32
+    EdgeFilterOptions:
+      type: object
+      properties:
+        $filter:
+          type: object
+          properties:
+            equals:
+              type: object
+              properties:
+                Id:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Weight:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
+                Junction1:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Junction2:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+            notEquals:
+              type: object
+              properties:
+                Id:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Weight:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
+                Junction1:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Junction2:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+            contains:
+              type: object
+              properties:
+                Id:
+                Weight:
+                Junction1:
+                Junction2:
+            greaterThan:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Weight:
+                  type: number
+                  format: double
+                Junction1:
+                  type: integer
+                  format: int32
+                Junction2:
+                  type: integer
+                  format: int32
+            greaterThanOrEqual:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Weight:
+                  type: number
+                  format: double
+                Junction1:
+                  type: integer
+                  format: int32
+                Junction2:
+                  type: integer
+                  format: int32
+            lessThan:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Weight:
+                  type: number
+                  format: double
+                Junction1:
+                  type: integer
+                  format: int32
+                Junction2:
+                  type: integer
+                  format: int32
+            lessThanOrEqual:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Weight:
+                  type: number
+                  format: double
+                Junction1:
+                  type: integer
+                  format: int32
+                Junction2:
+                  type: integer
+                  format: int32
+        $select:
+          type: array
+          example: ["Id", "Weight", "Junction1", "Junction2"]
+          items:
+            type: string
+        $sort:
+          - type: string
+            example: "Id,Weight,Junction1,Junction2"
         $order:
           type: string
           enum: ["asc", "desc"]

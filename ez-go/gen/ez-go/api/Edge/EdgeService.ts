@@ -1,20 +1,20 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
-import { JunctionDataRepository, JunctionDataEntityOptions } from "../../dao/Junction/JunctionDataRepository";
+import { EdgeRepository, EdgeEntityOptions } from "../../dao/Edge/EdgeRepository";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
-const validationModules = await Extensions.loadExtensionModules("ez-go-Junction-JunctionData", ["validate"]);
+const validationModules = await Extensions.loadExtensionModules("ez-go-Edge-Edge", ["validate"]);
 
 @Controller
-class JunctionDataService {
+class EdgeService {
 
-    private readonly repository = new JunctionDataRepository();
+    private readonly repository = new EdgeRepository();
 
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
-            const options: JunctionDataEntityOptions = {
+            const options: EdgeEntityOptions = {
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
@@ -30,7 +30,7 @@ class JunctionDataService {
         try {
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
-            response.setHeader("Content-Location", "/services/ts/ez-go/gen/ez-go/api/Junction/JunctionDataService.ts/" + entity.Id);
+            response.setHeader("Content-Location", "/services/ts/ez-go/gen/ez-go/api/Edge/EdgeService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {
@@ -73,7 +73,7 @@ class JunctionDataService {
             if (entity) {
                 return entity;
             } else {
-                HttpUtils.sendResponseNotFound("JunctionData not found");
+                HttpUtils.sendResponseNotFound("Edge not found");
             }
         } catch (error: any) {
             this.handleError(error);
@@ -101,7 +101,7 @@ class JunctionDataService {
                 this.repository.deleteById(id);
                 HttpUtils.sendResponseNoContent();
             } else {
-                HttpUtils.sendResponseNotFound("JunctionData not found");
+                HttpUtils.sendResponseNotFound("Edge not found");
             }
         } catch (error: any) {
             this.handleError(error);
@@ -119,9 +119,6 @@ class JunctionDataService {
     }
 
     private validateEntity(entity: any): void {
-        if (entity.Property3?.length > 20) {
-            throw new ValidationError(`The 'Property3' exceeds the maximum length of [20] characters`);
-        }
         for (const next of validationModules) {
             next.validate(entity);
         }

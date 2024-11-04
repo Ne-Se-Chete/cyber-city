@@ -7,7 +7,6 @@ import { EntityUtils } from "../utils/EntityUtils";
 export interface JunctionDataEntity {
     readonly Id: number;
     IsRaining?: boolean;
-    Property3?: string;
     Junction?: number;
     Timestamp?: Date;
     IsFallen?: boolean;
@@ -17,7 +16,6 @@ export interface JunctionDataEntity {
 
 export interface JunctionDataCreateEntity {
     readonly IsRaining?: boolean;
-    readonly Property3?: string;
     readonly Junction?: number;
     readonly Timestamp?: Date;
     readonly IsFallen?: boolean;
@@ -34,7 +32,6 @@ export interface JunctionDataEntityOptions {
         equals?: {
             Id?: number | number[];
             IsRaining?: boolean | boolean[];
-            Property3?: string | string[];
             Junction?: number | number[];
             Timestamp?: Date | Date[];
             IsFallen?: boolean | boolean[];
@@ -44,7 +41,6 @@ export interface JunctionDataEntityOptions {
         notEquals?: {
             Id?: number | number[];
             IsRaining?: boolean | boolean[];
-            Property3?: string | string[];
             Junction?: number | number[];
             Timestamp?: Date | Date[];
             IsFallen?: boolean | boolean[];
@@ -54,7 +50,6 @@ export interface JunctionDataEntityOptions {
         contains?: {
             Id?: number;
             IsRaining?: boolean;
-            Property3?: string;
             Junction?: number;
             Timestamp?: Date;
             IsFallen?: boolean;
@@ -64,7 +59,6 @@ export interface JunctionDataEntityOptions {
         greaterThan?: {
             Id?: number;
             IsRaining?: boolean;
-            Property3?: string;
             Junction?: number;
             Timestamp?: Date;
             IsFallen?: boolean;
@@ -74,7 +68,6 @@ export interface JunctionDataEntityOptions {
         greaterThanOrEqual?: {
             Id?: number;
             IsRaining?: boolean;
-            Property3?: string;
             Junction?: number;
             Timestamp?: Date;
             IsFallen?: boolean;
@@ -84,7 +77,6 @@ export interface JunctionDataEntityOptions {
         lessThan?: {
             Id?: number;
             IsRaining?: boolean;
-            Property3?: string;
             Junction?: number;
             Timestamp?: Date;
             IsFallen?: boolean;
@@ -94,7 +86,6 @@ export interface JunctionDataEntityOptions {
         lessThanOrEqual?: {
             Id?: number;
             IsRaining?: boolean;
-            Property3?: string;
             Junction?: number;
             Timestamp?: Date;
             IsFallen?: boolean;
@@ -140,11 +131,6 @@ export class JunctionDataRepository {
                 name: "IsRaining",
                 column: "JUNCTIONDATA_ISRAINING",
                 type: "BOOLEAN",
-            },
-            {
-                name: "Property3",
-                column: "JUNCTIONDATA_PROPERTY3",
-                type: "VARCHAR",
             },
             {
                 name: "Junction",
@@ -285,7 +271,7 @@ export class JunctionDataRepository {
     }
 
     private async triggerEvent(data: JunctionDataEntityEvent | JunctionDataUpdateEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("ez-go-Junction-JunctionData", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("ez-go-JunctionData-JunctionData", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -293,6 +279,6 @@ export class JunctionDataRepository {
                 console.error(error);
             }            
         });
-        producer.topic("ez-go-Junction-JunctionData").send(JSON.stringify(data));
+        producer.topic("ez-go-JunctionData-JunctionData").send(JSON.stringify(data));
     }
 }

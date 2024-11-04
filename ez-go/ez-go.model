@@ -26,31 +26,23 @@
                         "widgetType": "CHECKBOX"
                     },
                     {
-                        "dataLength": "20",
-                        "dataName": "JUNCTIONDATA_PROPERTY3",
-                        "dataNullable": "true",
-                        "dataType": "VARCHAR",
-                        "name": "Property3",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "20",
-                        "widgetSize": "",
-                        "widgetType": "TEXTBOX"
-                    },
-                    {
                         "dataName": "JUNCTIONDATA_JUNCTION",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
                         "name": "Junction",
+                        "widgetDropDownKey": "Id",
+                        "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX",
+                        "widgetType": "DROPDOWN",
                         "relationshipName": "JunctionData_Junction",
                         "relationshipEntityName": "Junction",
                         "relationshipEntityPerspectiveName": "Junction",
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "dataAutoIncrement": "true",
                         "dataName": "JUNCTIONDATA_TIMESTAMP",
                         "dataNullable": "true",
                         "dataType": "TIMESTAMP",
@@ -58,7 +50,7 @@
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "DATE"
+                        "widgetType": "DATETIME-LOCAL"
                     },
                     {
                         "dataName": "JUNCTIONDATA_ISFALLEN",
@@ -99,20 +91,20 @@
                 "feedUsername": "YWRtaW4=",
                 "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
-                "layoutType": "MANAGE",
+                "layoutType": "MANAGE_MASTER",
                 "menuIndex": "100",
                 "menuKey": "junctiondata",
                 "menuLabel": "JunctionData",
                 "name": "JunctionData",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/crosshair.svg",
-                "perspectiveLabel": "Junction",
-                "perspectiveName": "Junction",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/analysis.svg",
+                "perspectiveLabel": "Junction Data",
+                "perspectiveName": "JunctionData",
+                "perspectiveOrder": "200",
                 "perspectiveRole": "",
                 "title": "JunctionData",
                 "tooltip": "JunctionData",
-                "type": "DEPENDENT"
+                "type": "PRIMARY"
             },
             {
                 "properties": [
@@ -154,7 +146,7 @@
                 "menuLabel": "Junction",
                 "name": "Junction",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/crosshair.svg",
+                "perspectiveIcon": "/services/web/resources/unicons/compass.svg",
                 "perspectiveLabel": "Junction",
                 "perspectiveName": "Junction",
                 "perspectiveOrder": "100",
@@ -162,14 +154,104 @@
                 "title": "Junction",
                 "tooltip": "Junction",
                 "type": "PRIMARY"
+            },
+            {
+                "properties": [
+                    {
+                        "dataAutoIncrement": "true",
+                        "dataName": "EDGE_ID",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "true",
+                        "dataType": "INTEGER",
+                        "name": "Id",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "dataName": "EDGE_WEIGHT",
+                        "dataNullable": "true",
+                        "dataType": "DOUBLE",
+                        "name": "Weight",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "NUMBER"
+                    },
+                    {
+                        "dataName": "EDGE_JUNCTION1",
+                        "dataNullable": "true",
+                        "dataType": "INTEGER",
+                        "name": "Junction1",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX",
+                        "relationshipName": "Edge_Junction",
+                        "relationshipEntityName": "Junction",
+                        "relationshipEntityPerspectiveName": "Junction",
+                        "relationshipEntityPerspectiveLabel": "Entities"
+                    },
+                    {
+                        "dataName": "EDGE_JUNCTION2",
+                        "dataNullable": "true",
+                        "dataType": "INTEGER",
+                        "name": "Junction2",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX",
+                        "relationshipName": "Edge_Junction",
+                        "relationshipEntityName": "Junction",
+                        "relationshipEntityPerspectiveName": "Junction",
+                        "relationshipEntityPerspectiveLabel": "Entities"
+                    }
+                ],
+                "caption": "Manage entity Edge",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}EDGE\"",
+                "dataName": "EDGE",
+                "dataQuery": "",
+                "feedPassword": "YWRtaW4=",
+                "feedUsername": "YWRtaW4=",
+                "generateReport": "false",
+                "icon": "/services/web/resources/unicons/file.svg",
+                "layoutType": "MANAGE_MASTER",
+                "menuIndex": "100",
+                "menuKey": "edge",
+                "menuLabel": "Edge",
+                "name": "Edge",
+                "navigationPath": "/Home",
+                "perspectiveIcon": "/services/web/resources/unicons/corner-down-left.svg",
+                "perspectiveLabel": "Edge",
+                "perspectiveName": "Edge",
+                "perspectiveOrder": "300",
+                "perspectiveRole": "",
+                "title": "Edge",
+                "tooltip": "Edge",
+                "type": "PRIMARY"
             }
         ],
         "perspectives": [
             {
                 "name": "Junction",
                 "label": "Junction",
-                "icon": "/services/web/resources/unicons/crosshair.svg",
+                "icon": "/services/web/resources/unicons/compass.svg",
                 "order": "100",
+                "role": {}
+            },
+            {
+                "name": "Edge",
+                "label": "Edge",
+                "icon": "/services/web/resources/unicons/corner-down-left.svg",
+                "order": "300",
+                "role": {}
+            },
+            {
+                "name": "JunctionData",
+                "label": "Junction Data",
+                "icon": "/services/web/resources/unicons/analysis.svg",
+                "order": "200",
                 "role": {}
             }
         ],
