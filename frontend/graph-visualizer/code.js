@@ -8,7 +8,6 @@ window.onload = function () {
 
     // Now add edges between nodes
     x.addEdge("a", "b");
-    x.addEdge("a", "c");
     x.addEdge("c", "d");
     x.addEdge("b", "d");
 
