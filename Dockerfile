@@ -9,5 +9,6 @@ COPY frontend/graph-visualizer target/dirigible/repository/root/registry/public/
 ENV DIRIGIBLE_HOME_URL=/services/web/graph-visualizer/index.html
 
 ENV DIRIGIBLE_MULTY_TENANT_MODE=false
+ENV DIRIGIBLE_TRIAL_ENABLED=false
 
 EXPOSE 8080
