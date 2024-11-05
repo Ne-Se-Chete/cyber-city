@@ -346,7 +346,9 @@ Graph.Renderer.Raphael.prototype = {
       node.render = function (r, node) {
         /* the default node drawing */
         var color = node.color || "#000";
-        var ellipse = r.ellipse(0, 0, 30, 20).attr({ fill: color, stroke: color, "stroke-width": 2 });
+        var stroke = node.stroke || "#222";
+        var stroke_width = node.stroke_width || 2;
+        var ellipse = r.ellipse(0, 0, 30, 20).attr({ fill: color, stroke: stroke, "stroke-width": stroke_width });
         /* set DOM node ID */
         ellipse.node.id = node.label || node.id;
         shape = r.set().
