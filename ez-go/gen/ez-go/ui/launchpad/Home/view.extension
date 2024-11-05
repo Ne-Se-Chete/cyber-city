@@ -1,0 +1,5 @@
+{
+    "module": "ez-go/gen/ez-go/ui/launchpad/Home/view.js",
+    "extensionPoint": "ez-go-view",
+    "description": "ez-go - Application View"
+}

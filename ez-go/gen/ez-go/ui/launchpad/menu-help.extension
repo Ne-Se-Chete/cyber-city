@@ -1,0 +1,5 @@
+{
+    "module": "ez-go/gen/ez-go/ui/launchpad/menu-help.js",
+    "extensionPoint": "ez-go-menu",
+    "description": "ez-go - Application Menu"
+}

@@ -1,0 +1,135 @@
+{
+    "schema": {
+        "structures": [
+            {
+                "name": "JUNCTIONDATA",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "JUNCTIONDATA_ID"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "nullable": true,
+                        "name": "JUNCTIONDATA_ISRAINING"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "JUNCTIONDATA_JUNCTION"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "JUNCTIONDATA_TIMESTAMP"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "nullable": true,
+                        "name": "JUNCTIONDATA_ISFALLEN"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "nullable": true,
+                        "name": "JUNCTIONDATA_ISNOISY"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "nullable": true,
+                        "name": "JUNCTIONDATA_ISAMBULANCEPASSING"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "nullable": true,
+                        "name": "JUNCTIONDATA_ISFOGGY"
+                    }
+                ]
+            },
+            {
+                "name": "JUNCTION",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "JUNCTION_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 50,
+                        "nullable": true,
+                        "name": "JUNCTION_NAME"
+                    }
+                ]
+            },
+            {
+                "name": "EDGE",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "EDGE_ID"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "nullable": true,
+                        "name": "EDGE_WEIGHT"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "EDGE_JUNCTION1"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "EDGE_JUNCTION2"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 50,
+                        "nullable": true,
+                        "name": "EDGE_NAME"
+                    }
+                ]
+            },
+            {
+                "name": "JunctionData_Junction",
+                "type": "foreignKey",
+                "table": "JUNCTIONDATA",
+                "constraintName": "JunctionData_Junction",
+                "columns": "JUNCTIONDATA_JUNCTION",
+                "referencedTable": "JUNCTION",
+                "referencedColumns": "JUNCTION_ID"
+            },
+            {
+                "name": "Edge_Junction",
+                "type": "foreignKey",
+                "table": "EDGE",
+                "constraintName": "Edge_Junction",
+                "columns": "EDGE_JUNCTION1",
+                "referencedTable": "JUNCTION",
+                "referencedColumns": "JUNCTION_ID"
+            },
+            {
+                "name": "Edge_Junction",
+                "type": "foreignKey",
+                "table": "EDGE",
+                "constraintName": "Edge_Junction",
+                "columns": "EDGE_JUNCTION2",
+                "referencedTable": "JUNCTION",
+                "referencedColumns": "JUNCTION_ID"
+            }
+        ]
+    },
+    "datasource": "DefaultDB"
+}
