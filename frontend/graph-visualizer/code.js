@@ -2,10 +2,10 @@ window.onload = function () {
     var x = new Graph();
 
     // Add nodes with positions
-    x.addNode("a", {brr: "brr", x: 100, y: 100});
-    x.addNode("b");
-    x.addNode("c");
-    x.addNode("d");
+    x.addNode("a", { color: "red" });
+    x.addNode("b", { color: "blue" });
+    x.addNode("c", { color: "gray" });
+    x.addNode("d", { color: "green" });
 
     // Now add edges between nodes
     x.addEdge("a", "b");

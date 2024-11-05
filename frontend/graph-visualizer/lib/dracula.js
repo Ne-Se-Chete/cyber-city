@@ -345,7 +345,7 @@ Graph.Renderer.Raphael.prototype = {
     if (!node.render) {
       node.render = function (r, node) {
         /* the default node drawing */
-        var color = Raphael.getColor();
+        var color = node.color || "#000";
         var ellipse = r.ellipse(0, 0, 30, 20).attr({ fill: color, stroke: color, "stroke-width": 2 });
         /* set DOM node ID */
         ellipse.node.id = node.label || node.id;
